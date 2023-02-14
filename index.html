@@ -130,7 +130,10 @@
           textElement.innerText = "The meetup is over.";
           document.title = "The meetup is over.";
         }
-
+      });
+      
+      window.addEventListener("load", () => {
+        const textElement = document.querySelector("#text");
         textElement.classList.remove("hidden");
       });
     </script>
