@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How Many Days until the Sofia Meetup?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" sizes="any" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+      body {
+        padding: 15px;
+      }
+      main {
+        height: 100%;
+        width: 100%;
+        --background-overlay-opacity: 0.6;
+        background: linear-gradient(
+          rgba(0, 0, 0, var(--background-overlay-opacity)),
+          rgba(0, 0, 0, var(--background-overlay-opacity))
+        ), url("images/background-1920.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+      #overlay {
+        height: 100%;
+        width: 100%;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFRUVCNkFDQTM0NjgxMUUzQjZBQkRERjkwRUJCODAxRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFRUVCNkFDQjM0NjgxMUUzQjZBQkRERjkwRUJCODAxRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZCQkM2OUZGMzQ2ODExRTNCNkFCRERGOTBFQkI4MDFFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZCQkM2QTAwMzQ2ODExRTNCNkFCRERGOTBFQkI4MDFFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1oUJ/wAAABRJREFUeNpi+P//vxoQM4AwQIABAEAkCR7j/HD2AAAAAElFTkSuQmCC");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #text {
+        color: white;
+        --text-shadow-radius: 10px;
+        text-shadow: 0px 0px var(--text-shadow-radius) #262c3c;
+        font-size: 70px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+        
+        opacity: 1;
+        transition: opacity 1s;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #text.happening {
+        font-size: 40px;
+      }
+      #text.over {
+        font-size: 30px;
+      }
+      #text:not(.over):not(.happening)::after {
+        content: 'days until the meetup.';
+        font-size: .5em;
+      }
+      #text.hidden {
+        opacity: 0;
+      }
+      
+      @media screen and (min-width: 600px) {
+        #text {
+          font-size: 110px;
+          --text-shadow-radius: 18px;
+        }
+        #text.happening {
+          font-size: 80px;
+        }
+      }
+      
+      @media screen and (min-width: 1200px) {
+        #text {
+          font-size: 200px;
+          --text-shadow-radius: 25px;
+        }
+        #text.happening {
+          font-size: 90px;
+        }
+        #text.over {
+          font-size: 50px;
+        }
+      }
+      
+      #imageCredit {
+        font-size: 10px;
+        font-family: 'Courier New', Courier, monospace;
+        position: absolute;
+        right: 15px;
+        bottom: 1px;
+      }
+      #imageCredit a {
+        text-decoration: none;
+        color: #262c3c;
+      }
+      #imageCredit a:not(:last-child)::after {
+        content: ' •'
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const meetupStart = new Date("2023-11-23T12:00:00+0200"); // Noon in Eastern European Standard time
+        const meetupEnd = new Date("2023-11-27T12:00:00+0200"); // Noon in Eastern European Standard time
+        const now = new Date();
+              
+        const difference = Math.round((meetupStart - now) / 3_600_000 / 24);
+        const meetupStarted = now > meetupStart;
+        const meetupEnded = now > meetupEnd;
+              
+        const textElement = document.querySelector("#text");
+        
+        if (!meetupStarted && !meetupEnded) {
+          textElement.innerText = difference;
+          document.title = `${difference} days until the meetup.`;
+        } else if (meetupStarted && !meetupEnded) {
+          textElement.classList.add("happening");
+          textElement.innerText = "The meetup is happening right now!";
+          document.title = "The meetup is happening right now!";
+        } else {
+          textElement.classList.add("over");
+          textElement.innerText = "The meetup is over.";
+          document.title = "The meetup is over.";
+        }
+
+        textElement.classList.remove("hidden");
+      });
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="overlay">
+        <div id="text" class="hidden">0</div>
+      </div>
+    </main>
+    <div id="imageCredit">
+      Image credits: 
+      <a href="https://twemoji.twitter.com/">Icons CC-BY 4.0</a>
+      <a href="https://www.pexels.com/photo/the-alexander-nevsky-cathedral-under-a-blue-sky-6658672/">Background @valko23</a>
+    </div>
+  </body>
+</html>
