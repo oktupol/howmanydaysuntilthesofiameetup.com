@@ -18,11 +18,13 @@
         margin: 0;
       }
       body {
-        padding: 15px;
+        padding: 15px 15px 0 15px;
+        display: flex;
+        flex-direction: column;
       }
       main {
-        height: 100%;
         width: 100%;
+        flex-grow: 1;
         --background-overlay-opacity: 0.6;
         background: linear-gradient(
           rgba(0, 0, 0, var(--background-overlay-opacity)),
@@ -92,18 +94,20 @@
       }
       
       #imageCredit {
-        font-size: 10px;
+        height: 15px;
+        font-size: 9px;
         font-family: 'Courier New', Courier, monospace;
-        position: absolute;
-        right: 15px;
-        bottom: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
       }
       #imageCredit a {
         text-decoration: none;
         color: #262c3c;
       }
       #imageCredit a:not(:last-child)::after {
-        content: ' •'
+        content: '·';
+        margin: 0 .25em;
       }
     </style>
     <script>
@@ -145,7 +149,6 @@
       </div>
     </main>
     <div id="imageCredit">
-      Image credits: 
       <a href="https://twemoji.twitter.com/">Icons CC-BY 4.0</a>
       <a href="https://www.pexels.com/photo/the-alexander-nevsky-cathedral-under-a-blue-sky-6658672/">Background @valko23</a>
     </div>
